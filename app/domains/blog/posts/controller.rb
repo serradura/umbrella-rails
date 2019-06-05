@@ -1,5 +1,11 @@
-class Blog::PostsController < ApplicationController
+class Blog::Posts::Controller < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
+
+  prepend_view_path "#{Rails.root}/app/domains/blog/posts"
+
+  def self.controller_path
+    "views"
+  end
 
   # GET /blog/posts
   # GET /blog/posts.json
